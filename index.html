@@ -4,10 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Roteiro Japão 2026</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="preload" as="image" href="assets/meiji-jingu.jpg" fetchpriority="high">
+<link rel="stylesheet" href="assets/vendor/leaflet.min.css">
 <style>
   :root{
     --canvas:#242422;
@@ -22,7 +20,7 @@
   *{box-sizing:border-box;}
   html,body{margin:0;height:100%;}
   body{
-    font-family:"Inter",system-ui,-apple-system,sans-serif;
+    font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
     background:var(--canvas);color:var(--text);overflow:hidden;
   }
   button,a{font:inherit;}
@@ -47,7 +45,7 @@
   #day-nav::-webkit-scrollbar{display:none;}
   .day-tab{
     flex:0 0 auto;border:1px solid rgba(255,255,255,.12);border-radius:999px;
-    background:rgba(39,39,37,.88);backdrop-filter:blur(10px);
+    background:rgba(39,39,37,.94);
     color:#bdbcb7;padding:15px 22px;font-size:17px;font-weight:600;
     cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.16);transition:.18s ease;
   }
@@ -62,7 +60,7 @@
     position:absolute;left:24px;bottom:24px;z-index:900;
     display:flex;align-items:center;gap:12px;padding:12px 16px 12px 12px;
     border:1px solid rgba(255,255,255,.16);border-radius:16px;
-    background:rgba(32,32,31,.9);backdrop-filter:blur(12px);box-shadow:0 6px 26px rgba(0,0,0,.25);
+    background:rgba(32,32,31,.96);box-shadow:0 6px 20px rgba(0,0,0,.2);
   }
   .trip-mark{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:#fff;color:#222;font-weight:800;}
   .trip-badge strong{display:block;font-size:13px;letter-spacing:.02em;}
@@ -97,7 +95,7 @@
     width:100%;display:grid;grid-template-columns:104px minmax(0,1fr) 20px;align-items:center;
     gap:18px;min-height:146px;padding:18px;margin:0 0 14px;border:1px solid transparent;
     border-radius:22px;background:var(--card);text-align:left;cursor:pointer;
-    transition:.18s ease;
+    transition:.18s ease;content-visibility:auto;contain-intrinsic-size:146px;contain:layout paint style;
   }
   .place-card:hover{transform:translateY(-2px);border-color:#4c4c48;background:#242422;}
   .place-photo{
@@ -120,10 +118,9 @@
   .leaflet-control-attribution{background:rgba(23,25,28,.78)!important;color:#bbb!important;}
   .leaflet-control-attribution a{color:#d9d9d9!important;}
   .leaflet-control-scale{display:none;}
-  .route-line{filter:drop-shadow(0 2px 2px rgba(0,0,0,.35));}
   .photo-pin-wrap{background:transparent;border:0;}
-  .photo-pin{position:relative;width:78px;height:78px;filter:drop-shadow(0 4px 6px rgba(0,0,0,.48));}
-  .photo-pin img{width:100%;height:100%;object-fit:cover;border:4px solid #f6f7fb;border-radius:16px;display:block;background:#38495b;}
+  .photo-pin{position:relative;width:78px;height:78px;}
+  .photo-pin img{width:100%;height:100%;object-fit:cover;border:4px solid #f6f7fb;border-radius:16px;display:block;background:#38495b;box-shadow:0 4px 8px rgba(0,0,0,.38);}
   .photo-pin b{
     position:absolute;right:-9px;top:-10px;display:grid;place-items:center;width:30px;height:30px;
     border-radius:50%;background:#fff;color:#222;font-size:14px;box-shadow:0 2px 5px rgba(0,0,0,.24);
@@ -134,7 +131,7 @@
   }
   .pin.hotel{display:grid;place-items:center;width:25px;height:25px;border-radius:8px;background:#242424;color:#fff;border:2px solid #fff;box-shadow:0 2px 7px rgba(0,0,0,.4);}
   .leaflet-popup-content-wrapper{border-radius:16px;background:#292927;color:#f5f4f1;box-shadow:0 10px 30px rgba(0,0,0,.38);}
-  .leaflet-popup-content{margin:15px 17px;font-family:"Inter",sans-serif;}
+  .leaflet-popup-content{margin:15px 17px;font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;}
   .leaflet-popup-tip{background:#292927;}
   .pop-day{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#aaa8a3;}
   .pop-name{font-size:16px;font-weight:700;margin-top:5px;}
@@ -149,6 +146,7 @@
     #app{height:100vh;margin:0;border:0;border-radius:0;}
     #day-nav{top:14px;left:12px;right:12px;max-width:none;gap:8px;}
     .day-tab{padding:11px 16px;font-size:14px;}
+    .day-tab[aria-selected="true"]{order:-1;}
     #panel{top:42vh;left:0;right:0;bottom:0;width:auto;max-width:100vw;border-radius:24px 24px 0 0;border-width:1px 0 0;}
     .panel-head{padding:22px 22px 16px;}
     .panel-topline::before{content:"";position:absolute;left:50%;top:9px;width:44px;height:4px;border-radius:4px;background:#676763;transform:translateX(-50%);}
@@ -166,6 +164,8 @@
     .photo-pin{width:60px;height:60px;}.photo-pin b{width:25px;height:25px;font-size:12px;}
     #panel{transition:transform .25s ease;}
     #panel.is-minimized{transform:translateY(calc(100% - 84px));}
+    #app,#panel,.place-card,.leaflet-popup-content-wrapper{box-shadow:none;}
+    .day-tab,.place-card,.route-button{transition:none;}
   }
   @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important;}}
 </style>
@@ -197,7 +197,7 @@
   </aside>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="assets/vendor/leaflet.min.js"></script>
 <script>
 const legs = [
   { name:"Tóquio — Harajuku e Shibuya", date:"25 ago", color:"#c2452d", stops:[
@@ -276,24 +276,24 @@ const hotels = [
 /* ---------- Place imagery ---------- */
 const searchedPhotos = [
   'assets/meiji-jingu.jpg',
-  'assets/tokyu-plaza.png',
-  'assets/takeshita-street.png',
-  'https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=420&q=80',
+  'assets/tokyu-plaza.jpg',
+  'assets/takeshita-street.jpg',
   'assets/shibuya-crossing.jpg',
-  'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=420&q=80'
+  'assets/shibuya-crossing.jpg',
+  'assets/shibuya-crossing.jpg'
 ];
 const cityPhotos = [
-  searchedPhotos[5],
-  'https://images.unsplash.com/photo-1590559899731-a382839e5549?auto=format&fit=crop&w=420&q=80',
-  'https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=420&q=80',
-  'https://images.unsplash.com/photo-1492571350019-22de08371fd3?auto=format&fit=crop&w=420&q=80',
-  'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=420&q=80',
-  'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=420&q=80',
-  'https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=420&q=80',
-  'https://images.unsplash.com/photo-1492571350019-22de08371fd3?auto=format&fit=crop&w=420&q=80',
-  'https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?auto=format&fit=crop&w=420&q=80',
-  searchedPhotos[5],
-  searchedPhotos[5]
+  searchedPhotos[0],
+  'assets/day-02-osaka.jpg',
+  'assets/day-03-himeji.jpg',
+  'assets/day-04-miyajima.jpg',
+  'assets/day-05-kiyomizudera.jpg',
+  'assets/day-06-arashiyama.jpg',
+  'assets/day-07-nara.jpg',
+  'assets/day-08-kamakura.jpg',
+  'assets/day-09-hakone.jpg',
+  'assets/day-10-tokyo.jpg',
+  'assets/day-11-sensoji.jpg'
 ];
 const firstDayDetails = [
   ['4.6','51 962','Santuário xintoísta'],
@@ -316,23 +316,38 @@ function fallbackImage(name, color){
 }
 
 /* ---------- Map ---------- */
-const map = L.map('map',{zoomControl:false,scrollWheelZoom:true,preferCanvas:true}).setView([35.67,139.70],14);
+const map = L.map('map',{
+  zoomControl:false,
+  scrollWheelZoom:true,
+  preferCanvas:true,
+  zoomAnimation:false,
+  fadeAnimation:false,
+  markerZoomAnimation:false
+});
 L.control.zoom({position:'bottomleft'}).addTo(map);
 L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{
-  attribution:'&copy; OpenStreetMap &copy; CARTO',subdomains:'abcd',maxZoom:20
+  attribution:'&copy; OpenStreetMap &copy; CARTO',
+  subdomains:'abcd',
+  maxZoom:20,
+  updateWhenIdle:true,
+  updateWhenZooming:false,
+  keepBuffer:1,
+  detectRetina:false
 }).addTo(map);
 
-const legLayers = [];
+const legLayers = new Array(legs.length);
 const markerIndex = new Map();
 
-legs.forEach((leg,li)=>{
+function ensureLegLayer(li){
+  if(legLayers[li]) return legLayers[li];
+  const leg=legs[li];
   const layer = L.layerGroup();
-  const pts = [];
+  const pts = leg.stops.map(stop=>[stop.lat,stop.lng]);
   leg.stops.forEach((stop,si)=>{
     const fallback = fallbackImage(stop.n,leg.color);
     const icon = L.divIcon({
       className:'photo-pin-wrap',
-      html:`<div class="photo-pin"><img src="${stop.image}" alt="" onerror="this.onerror=null;this.src='${fallback}'"><b>${si+1}</b></div>`,
+      html:`<div class="photo-pin"><img src="${stop.image}" alt="" decoding="async" width="78" height="78" onerror="this.onerror=null;this.src='${fallback}'"><b>${si+1}</b></div>`,
       iconSize:[78,78],iconAnchor:[39,39],popupAnchor:[0,-42]
     });
     const marker = L.marker([stop.lat,stop.lng],{icon,title:stop.n}).addTo(layer);
@@ -343,13 +358,13 @@ legs.forEach((leg,li)=>{
        <a class="pop-link" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${stop.lat},${stop.lng}">Abrir no Google Maps →</a>`
     );
     markerIndex.set(`${li}-${si}`,marker);
-    pts.push([stop.lat,stop.lng]);
   });
   if(pts.length>1){
     L.polyline(pts,{color:'#6f9fec',weight:6,opacity:.92,className:'route-line',lineJoin:'round',lineCap:'round'}).addTo(layer);
   }
-  legLayers.push({layer,pts});
-});
+  legLayers[li]={layer,pts};
+  return legLayers[li];
+}
 
 /* ---------- Day panel ---------- */
 const dayNav = document.getElementById('day-nav');
@@ -358,7 +373,7 @@ const panel = document.getElementById('panel');
 const panelTitle = document.getElementById('panel-title');
 const panelDay = document.getElementById('panel-day');
 const routeButton = document.getElementById('route-button');
-let activeLeg = 0;
+let activeLeg = -1;
 
 function displayTitle(leg){
   const parts = leg.name.split(' — ');
@@ -376,15 +391,16 @@ function routeHref(stops){
 
 function focusMap(points){
   const mobile = window.matchMedia('(max-width:760px)').matches;
+  map.stop();
   if(points.length === 1){
-    map.setView(points[0],mobile?14:15,{animate:true});
-    if(!mobile) map.panBy([-Math.round(panel.offsetWidth*.34),0],{animate:true});
+    map.setView(points[0],mobile?14:15,{animate:false});
+    if(!mobile) map.panBy([-Math.round(panel.offsetWidth*.34),0],{animate:false});
     return;
   }
   map.fitBounds(points,{
     paddingTopLeft:mobile?[48,72]:[86,90],
     paddingBottomRight:mobile?[48,Math.round(window.innerHeight*.58)]:[panel.offsetWidth+72,70],
-    maxZoom:15,animate:true
+    maxZoom:15,animate:false
   });
 }
 
@@ -396,7 +412,7 @@ function renderPlaces(li){
     card.className='place-card';
     card.type='button';
     card.innerHTML = `
-      <img class="place-photo" src="${stop.image}" alt="${stop.n}">
+      <img class="place-photo" src="${stop.image}" alt="${stop.n}" loading="lazy" decoding="async" width="104" height="104">
       <span class="place-copy">
         <span class="place-name">${stop.n}</span>
         <span class="place-meta">${stop.rating} <span class="star">★</span> (${stop.reviews}) &nbsp;·&nbsp; ${stop.category}</span>
@@ -406,8 +422,9 @@ function renderPlaces(li){
     const image = card.querySelector('img');
     image.addEventListener('error',()=>{image.src=fallbackImage(stop.n,leg.color);},{once:true});
     card.addEventListener('click',()=>{
-      map.setView([stop.lat,stop.lng],16,{animate:true});
-      if(!window.matchMedia('(max-width:760px)').matches) map.panBy([-Math.round(panel.offsetWidth*.25),0],{animate:true});
+      map.stop();
+      map.setView([stop.lat,stop.lng],16,{animate:false});
+      if(!window.matchMedia('(max-width:760px)').matches) map.panBy([-Math.round(panel.offsetWidth*.25),0],{animate:false});
       markerIndex.get(`${li}-${si}`).openPopup();
     });
     places.appendChild(card);
@@ -416,22 +433,37 @@ function renderPlaces(li){
 }
 
 function selectDay(li,animate=true){
+  if(li===activeLeg){
+    panel.classList.remove('is-minimized');
+    return;
+  }
+  const selectedLayer=ensureLegLayer(li);
+  if(activeLeg>=0 && legLayers[activeLeg]) map.removeLayer(legLayers[activeLeg].layer);
   activeLeg=li;
-  legLayers.forEach((entry,index)=>index===li?entry.layer.addTo(map):map.removeLayer(entry.layer));
+  selectedLayer.layer.addTo(map);
   document.querySelectorAll('.day-tab').forEach((tab,index)=>{
     const selected=index===li;
     tab.setAttribute('aria-selected',String(selected));
     tab.tabIndex=selected?0:-1;
   });
   const activeTab=dayNav.children[li];
-  activeTab.scrollIntoView({behavior:animate?'smooth':'auto',block:'nearest',inline:'center'});
+  requestAnimationFrame(()=>{
+    dayNav.scrollLeft=window.matchMedia('(max-width:760px)').matches
+      ? 0
+      : Math.max(0,activeTab.offsetLeft-(dayNav.clientWidth-activeTab.offsetWidth)/2);
+  });
   panelDay.textContent=`DIA ${li+1}`;
   panelTitle.textContent=displayTitle(legs[li]);
   routeButton.href=routeHref(legs[li].stops);
   renderPlaces(li);
   panel.classList.remove('is-minimized');
   document.getElementById('panel-toggle').textContent='×';
-  focusMap(legLayers[li].pts);
+  focusMap(selectedLayer.pts);
+  if(animate){
+    const url=new URL(window.location.href);
+    url.searchParams.set('day',String(li+1));
+    history.replaceState(null,'',url);
+  }
 }
 
 legs.forEach((leg,li)=>{
@@ -454,9 +486,17 @@ document.getElementById('panel-toggle').addEventListener('click',event=>{
   event.currentTarget.setAttribute('aria-label',minimized?'Expandir detalhes':'Minimizar detalhes');
 });
 
-window.addEventListener('resize',()=>{map.invalidateSize();focusMap(legLayers[activeLeg].pts);});
+let resizeFrame=0;
+window.addEventListener('resize',()=>{
+  cancelAnimationFrame(resizeFrame);
+  resizeFrame=requestAnimationFrame(()=>{
+    map.invalidateSize({pan:false});
+    if(activeLeg>=0) focusMap(legLayers[activeLeg].pts);
+  });
+},{passive:true});
 document.getElementById('m-stops').textContent=legs.reduce((total,leg)=>total+leg.stops.length,0);
-selectDay(0,false);
+const requestedDay=Math.min(legs.length,Math.max(1,Number(new URLSearchParams(location.search).get('day'))||1));
+selectDay(requestedDay-1,false);
 </script>
 </body>
 </html>
