@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Roteiro Japão 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+  :root{
+    --paper:#f2efe8;
+    --paper-2:#e7e3d9;
+    --ink:#1d2433;
+    --ink-soft:#5b6478;
+    --ink-faint:#8d95a6;
+    --rule:#d4cfc2;
+    --indigo:#2d4a6b;
+    --rail:#c3bcac;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;height:100%;}
+  body{
+    font-family:"IBM Plex Sans",system-ui,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    overflow:hidden;
+  }
+  #app{display:flex;height:100vh;}
+
+  /* ---------- Sidebar ---------- */
+  #panel{
+    width:352px;min-width:352px;height:100%;
+    background:var(--paper);
+    border-right:1px solid var(--rule);
+    display:flex;flex-direction:column;
+  }
+  header{padding:26px 26px 18px;border-bottom:1px solid var(--rule);}
+  .kicker{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--ink-faint);margin-bottom:10px;
+  }
+  h1{
+    font-family:"Shippori Mincho",serif;
+    font-size:31px;font-weight:700;line-height:1.05;margin:0 0 12px;
+    letter-spacing:-.01em;
+  }
+  .meta{display:flex;gap:20px;font-size:11.5px;color:var(--ink-soft);}
+  .meta b{
+    display:block;font-family:"IBM Plex Mono",monospace;
+    font-size:15px;color:var(--ink);font-weight:500;
+  }
+
+  .controls{
+    display:flex;gap:8px;padding:14px 26px;border-bottom:1px solid var(--rule);
+    align-items:center;flex-wrap:wrap;
+  }
+  button.ctl{
+    font:inherit;font-size:11.5px;
+    padding:5px 11px;border-radius:99px;cursor:pointer;
+    border:1px solid var(--rule);background:transparent;color:var(--ink-soft);
+    transition:.15s;
+  }
+  button.ctl:hover{border-color:var(--ink-soft);color:var(--ink);}
+  button.ctl[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper);}
+  button.ctl:focus-visible{outline:2px solid var(--indigo);outline-offset:2px;}
+
+  /* ---------- The rail ---------- */
+  #rail{flex:1;overflow-y:auto;padding:8px 0 60px;position:relative;}
+  .leg{position:relative;padding:0 26px 0 62px;}
+  .leg::before{           /* continuous rail line */
+    content:"";position:absolute;left:35px;top:0;bottom:0;
+    width:2px;background:var(--rail);
+  }
+  .leg:first-child::before{top:22px;}
+  .leg:last-child::before{bottom:calc(100% - 22px);}
+  .leg-head{
+    display:grid;grid-template-columns:1fr auto;gap:2px 10px;
+    padding:12px 0;cursor:pointer;background:none;border:0;
+    width:100%;text-align:left;font:inherit;color:inherit;
+  }
+  .leg-head:hover .leg-name{color:var(--indigo);}
+  .leg-head:focus-visible{outline:2px solid var(--indigo);outline-offset:-2px;}
+  .station{
+    position:absolute;left:29px;top:17px;
+    width:14px;height:14px;border-radius:50%;
+    border:3px solid var(--paper);
+    box-shadow:0 0 0 1.5px currentColor;
+    background:currentColor;
+  }
+  .leg-name{font-size:14px;font-weight:600;line-height:1.3;transition:.15s;}
+  .leg-date{
+    font-family:"IBM Plex Mono",monospace;font-size:11px;
+    color:var(--ink-faint);white-space:nowrap;padding-top:2px;
+  }
+  .leg-count{
+    grid-column:1/-1;font-size:11.5px;color:var(--ink-faint);
+  }
+  .stops{display:none;padding:0 0 12px;}
+  .leg.open .stops{display:block;}
+  .stop{
+    display:flex;gap:10px;align-items:baseline;
+    padding:5px 8px;margin-left:-8px;border-radius:5px;
+    cursor:pointer;font-size:12.5px;color:var(--ink-soft);
+    border:0;background:none;font-family:inherit;text-align:left;width:calc(100% + 8px);
+  }
+  .stop:hover{background:var(--paper-2);color:var(--ink);}
+  .stop:focus-visible{outline:2px solid var(--indigo);outline-offset:-2px;}
+  .stop-n{
+    font-family:"IBM Plex Mono",monospace;font-size:10.5px;
+    color:var(--ink-faint);min-width:14px;
+  }
+
+  footer{
+    padding:14px 26px;border-top:1px solid var(--rule);
+    font-size:10.5px;color:var(--ink-faint);line-height:1.5;
+  }
+
+  /* ---------- Map ---------- */
+  #map{flex:1;height:100%;background:var(--paper-2);}
+  .pin{
+    display:flex;align-items:center;justify-content:center;
+    width:22px;height:22px;border-radius:50%;
+    color:#fff;font-family:"IBM Plex Mono",monospace;
+    font-size:10px;font-weight:500;
+    border:2px solid rgba(255,255,255,.9);
+    box-shadow:0 1px 4px rgba(0,0,0,.35);
+  }
+  .pin.hotel{
+    border-radius:4px;background:var(--ink);
+    width:18px;height:18px;font-size:11px;
+  }
+  .leaflet-popup-content-wrapper{
+    border-radius:6px;background:var(--paper);color:var(--ink);
+    box-shadow:0 4px 20px rgba(29,36,51,.22);
+  }
+  .leaflet-popup-content{margin:12px 15px;}
+  .leaflet-popup-tip{background:var(--paper);}
+  .pop-day{
+    font-family:"IBM Plex Mono",monospace;font-size:10px;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);
+  }
+  .pop-name{font-family:"Shippori Mincho",serif;font-size:16px;font-weight:700;margin-top:3px;}
+  .pop-note{font-size:12px;color:var(--ink-soft);margin-top:5px;line-height:1.45;}
+  .pop-link{
+    display:inline-block;margin-top:8px;font-size:11.5px;
+    color:var(--indigo);text-decoration:none;border-bottom:1px solid currentColor;
+  }
+
+  @media (max-width:820px){
+    body{overflow:auto;}
+    #app{flex-direction:column;height:auto;}
+    #panel{width:100%;min-width:0;height:auto;border-right:0;border-bottom:1px solid var(--rule);}
+    #rail{max-height:44vh;}
+    #map{height:56vh;min-height:340px;}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;}}
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="panel">
+    <header>
+      <div class="kicker">23 ago — 10 set 2026</div>
+      <h1>Roteiro<br>Japão 2026</h1>
+      <div class="meta">
+        <div>Etapas<b id="m-legs">—</b></div>
+        <div>Pontos<b id="m-stops">—</b></div>
+        <div>Viajantes<b>4</b></div>
+      </div>
+    </header>
+
+    <div class="controls">
+      <button class="ctl" id="btn-all" aria-pressed="true">Ver tudo</button>
+      <button class="ctl" id="btn-hotels" aria-pressed="true">Hotéis</button>
+      <button class="ctl" id="btn-expand" aria-pressed="false">Expandir</button>
+    </div>
+
+    <div id="rail"></div>
+
+    <footer>
+      Tóquio → Osaka → Himeji → Hiroshima → Miyajima → Quioto → Nara → Kamakura → Hakone → Tóquio.
+      Linha tracejada: deslocações entre cidades. Linha a cor: percurso dentro de cada dia.
+    </footer>
+  </div>
+  <div id="map"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+const legs = [
+  { name:"Tóquio — Harajuku e Shibuya", date:"25 ago", color:"#c2452d", stops:[
+    {n:"Meiji Jingu", lat:35.6763976, lng:139.6993259, note:"Santuário xintoísta no bosque de Yoyogi."},
+    {n:"Tokyu Plaza Omotesando", lat:35.6687294, lng:139.7059549},
+    {n:"Rua Takeshita", lat:35.6710335, lng:139.7051821, note:"Rua principal de Harajuku."},
+    {n:"Estátua de Hachiko", lat:35.6590579, lng:139.7006293},
+    {n:"Shibuya Crossing", lat:35.659482, lng:139.7005596},
+    {n:"Shibuya Sky", lat:35.6586719, lng:139.7019848, note:"Observatório. Ao fim do dia, para a iluminação."},
+  ]},
+  { name:"Osaka", date:"26 ago", color:"#d98324", stops:[
+    {n:"Umeda Sky Building", lat:34.7052872, lng:135.4896527, note:"Tarde, depois de deixar bagagem no hotel."},
+    {n:"Tsutenkaku", lat:34.6524992, lng:135.5063058},
+    {n:"Namba", lat:34.6657531, lng:135.5010362},
+    {n:"Dotonbori", lat:34.6686471, lng:135.5030983, note:"Noite."},
+  ]},
+  { name:"Himeji e Hiroshima", date:"27 ago", color:"#a8951f", stops:[
+    {n:"Castelo de Himeji", lat:34.839449, lng:134.6939047, note:"Paragem da manhã, a caminho de Hiroshima."},
+    {n:"Cúpula da Bomba Atómica", lat:34.395483, lng:132.453592, note:"Paragem 2 do autocarro Maple Loop."},
+    {n:"Parque Memorial da Paz", lat:34.3926867, lng:132.4522012},
+  ]},
+  { name:"Miyajima → Quioto", date:"28 ago", color:"#3f8f5e", stops:[
+    {n:"Santuário Itsukushima", lat:34.2959896, lng:132.3198285, note:"Torii flutuante — melhor com maré cheia. Sair da ilha até às 13:00."},
+  ]},
+  { name:"Quioto — Kiyomizudera", date:"29 ago", color:"#2f8790", stops:[
+    {n:"Kiyomizu-dera", lat:34.9946662, lng:135.784661, note:"Táxi do hotel, 15–20 min."},
+    {n:"Sannenzaka", lat:34.9966644, lng:135.781008},
+    {n:"Ninenzaka", lat:34.9981744, lng:135.7808578},
+    {n:"Pagoda Yasaka", lat:34.998558, lng:135.7792358},
+    {n:"Sanjusangen-do", lat:34.9878845, lng:135.7717126, note:"Táxi, 10 min."},
+    {n:"Mercado Nishiki", lat:35.0050258, lng:135.764723, note:"Tarde."},
+  ]},
+  { name:"Quioto — Kinkakuji e Arashiyama", date:"30 ago", color:"#3a6ea8", stops:[
+    {n:"Kinkaku-ji", lat:35.03937, lng:135.7292431, note:"Manhã."},
+    {n:"Floresta de Bambu de Arashiyama", lat:35.0168187, lng:135.6713013, note:"Sagano Romantic Train às 14:02."},
+  ]},
+  { name:"Quioto → Nara", date:"31 ago", color:"#6a58a8", stops:[
+    {n:"Fushimi Inari Taisha", lat:34.9676945, lng:135.7791876, note:"Visita curta antes de seguir para Nara."},
+    {n:"Parque de Nara", lat:34.685047, lng:135.843012},
+    {n:"Todai-ji", lat:34.6889851, lng:135.8398158},
+    {n:"Mochiidono (mochi)", lat:34.6802771, lng:135.8290132},
+  ]},
+  { name:"Nara → Kamakura → Tóquio", date:"1 set", color:"#a3468c", stops:[
+    {n:"Kotoku-in — Grande Buda", lat:35.3168145, lng:139.5357442, note:"Via Shin-Yokohama e Yokohama."},
+  ]},
+  { name:"Hakone", date:"2 set", color:"#b8506a", stops:[
+    {n:"Lago Ashi", lat:35.2095674, lng:139.0034626, note:"Romancecar até Hakone, depois barco."},
+    {n:"Teleférico de Hakone", lat:35.2444273, lng:139.0150413, note:"Regresso a Tóquio no mesmo dia."},
+  ]},
+  { name:"Tóquio — exploração livre", date:"3–8 set", color:"#7a6a4f", stops:[
+    {n:"Mercado Tsukiji", lat:35.6647703, lng:139.7702515},
+    {n:"teamLab Planets", lat:35.6491207, lng:139.7897739, note:"Encerra à quarta-feira."},
+    {n:"Akihabara", lat:35.6996473, lng:139.7713703},
+    {n:"Parque Ueno", lat:35.7147557, lng:139.7734312},
+    {n:"Ginza", lat:35.6712228, lng:139.7664859},
+    {n:"Odaiba", lat:35.6205834, lng:139.7805445},
+    {n:"Minatomirai — Yokohama", lat:35.4600798, lng:139.6324577},
+    {n:"Shinjuku", lat:35.6938253, lng:139.7033559},
+  ]},
+  { name:"Regresso", date:"9 set", color:"#4a5a68", stops:[
+    {n:"Senso-ji — Asakusa", lat:35.7147651, lng:139.7966553},
+    {n:"Tokyo Skytree", lat:35.7100627, lng:139.8107004},
+    {n:"Aeroporto de Haneda", lat:35.5482964, lng:139.7779951, note:"Check-in 21:05. Voo EK313 às 00:05."},
+  ]},
+];
+
+const hotels = [
+  {n:"APA Hotel TKP Nippori Ekimae", lat:35.72717, lng:139.77283, when:"24–26 ago · Tóquio"},
+  {n:"Via Inn Shin-Osaka Shomenguchi", lat:34.73170, lng:135.49915, when:"26–27 ago · Osaka"},
+  {n:"Hotel Granvia Hiroshima", lat:34.39903, lng:132.47562, when:"27–28 ago · Hiroshima"},
+  {n:"Hotel Keihan Kyoto Ekiminami", lat:34.98377, lng:135.75758, when:"28–31 ago · Quioto"},
+  {n:"Onyado Nono Nara", lat:34.68205, lng:135.82020, when:"31 ago–1 set · Nara"},
+  {n:"Keisei Richmond Hotel Tokyo Oshiage", lat:35.71060, lng:139.81350, when:"1–9 set · Tóquio"},
+];
+
+/* ---------- Map ---------- */
+const map = L.map('map',{zoomControl:true, scrollWheelZoom:true}).setView([35.2,136.4],6);
+L.control.scale({imperial:false}).addTo(map);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+  attribution:'&copy; OpenStreetMap',maxZoom:19
+}).addTo(map);
+
+const legLayers = [], allPoints = [];
+const markerIndex = new Map();
+
+legs.forEach((leg,li)=>{
+  const layer = L.layerGroup().addTo(map);
+  const pts = [];
+  leg.stops.forEach((s,si)=>{
+    const icon = L.divIcon({
+      className:'',
+      html:`<div class="pin" style="background:${leg.color}">${si+1}</div>`,
+      iconSize:[22,22], iconAnchor:[11,11], popupAnchor:[0,-12]
+    });
+    const m = L.marker([s.lat,s.lng],{icon,title:s.n}).addTo(layer);
+    m.bindPopup(
+      `<div class="pop-day">${leg.date} · ${leg.name}</div>
+       <div class="pop-name">${s.n}</div>
+       ${s.note?`<div class="pop-note">${s.note}</div>`:''}
+       <a class="pop-link" target="_blank" rel="noopener"
+          href="https://www.google.com/maps/search/?api=1&query=${s.lat},${s.lng}">Abrir no Google Maps</a>`
+    );
+    markerIndex.set(li+'-'+si,m);
+    pts.push([s.lat,s.lng]); allPoints.push([s.lat,s.lng]);
+  });
+  if(pts.length>1) L.polyline(pts,{color:leg.color,weight:3.5,opacity:.9}).addTo(layer);
+  legLayers.push({layer,pts});
+});
+
+const interCity = L.polyline(
+  legs.map(l=>[l.stops[0].lat,l.stops[0].lng]),
+  {color:'#5b6478',weight:1.6,opacity:.55,dashArray:'3,9'}
+).addTo(map);
+
+const hotelLayer = L.layerGroup().addTo(map);
+hotels.forEach(h=>{
+  L.marker([h.lat,h.lng],{
+    icon:L.divIcon({className:'',html:`<div class="pin hotel">⌂</div>`,iconSize:[18,18],iconAnchor:[9,9],popupAnchor:[0,-10]}),
+    title:h.n
+  }).bindPopup(`<div class="pop-day">${h.when}</div><div class="pop-name">${h.n}</div>`).addTo(hotelLayer);
+});
+
+map.fitBounds(allPoints,{padding:[50,50]});
+
+/* ---------- Sidebar ---------- */
+const rail = document.getElementById('rail');
+let activeLeg = null;
+
+legs.forEach((leg,li)=>{
+  const el = document.createElement('section');
+  el.className='leg';
+  el.innerHTML = `
+    <span class="station" style="color:${leg.color}"></span>
+    <button class="leg-head" aria-expanded="false">
+      <span class="leg-name">${leg.name}</span>
+      <span class="leg-date">${leg.date}</span>
+      <span class="leg-count">${leg.stops.length} ${leg.stops.length===1?'ponto':'pontos'}</span>
+    </button>
+    <div class="stops"></div>`;
+  const stopsEl = el.querySelector('.stops');
+  leg.stops.forEach((s,si)=>{
+    const b=document.createElement('button');
+    b.className='stop';
+    b.innerHTML=`<span class="stop-n">${si+1}</span><span>${s.n}</span>`;
+    b.addEventListener('click',()=>{
+      map.setView([s.lat,s.lng],16);
+      markerIndex.get(li+'-'+si).openPopup();
+    });
+    stopsEl.appendChild(b);
+  });
+
+  el.querySelector('.leg-head').addEventListener('click',(e)=>{
+    const open = el.classList.toggle('open');
+    e.currentTarget.setAttribute('aria-expanded',open);
+    focusLeg(li);
+  });
+  rail.appendChild(el);
+});
+
+function focusLeg(li){
+  activeLeg = li;
+  legLayers.forEach((l,i)=>{
+    if(i===li) map.addLayer(l.layer); else map.removeLayer(l.layer);
+  });
+  map.removeLayer(interCity);
+  btnAll.setAttribute('aria-pressed','false');
+  const pts = legLayers[li].pts;
+  map.fitBounds(pts.length>1?pts:[pts[0],pts[0]],{padding:[70,70],maxZoom:15});
+}
+
+function showAll(){
+  activeLeg=null;
+  legLayers.forEach(l=>map.addLayer(l.layer));
+  map.addLayer(interCity);
+  btnAll.setAttribute('aria-pressed','true');
+  map.fitBounds(allPoints,{padding:[50,50]});
+}
+
+const btnAll=document.getElementById('btn-all');
+const btnHotels=document.getElementById('btn-hotels');
+const btnExpand=document.getElementById('btn-expand');
+
+btnAll.addEventListener('click',showAll);
+
+btnHotels.addEventListener('click',()=>{
+  const on = btnHotels.getAttribute('aria-pressed')==='true';
+  btnHotels.setAttribute('aria-pressed',String(!on));
+  on ? map.removeLayer(hotelLayer) : map.addLayer(hotelLayer);
+});
+
+btnExpand.addEventListener('click',()=>{
+  const on = btnExpand.getAttribute('aria-pressed')==='true';
+  btnExpand.setAttribute('aria-pressed',String(!on));
+  btnExpand.textContent = on ? 'Expandir' : 'Recolher';
+  document.querySelectorAll('.leg').forEach(el=>{
+    el.classList.toggle('open',!on);
+    el.querySelector('.leg-head').setAttribute('aria-expanded',String(!on));
+  });
+});
+
+document.getElementById('m-legs').textContent = legs.length;
+document.getElementById('m-stops').textContent = legs.reduce((a,l)=>a+l.stops.length,0);
+</script>
+</body>
+</html>
