@@ -1,0 +1,42 @@
+# Location image credits
+
+- `d01-01-meiji-jingu.jpg` — [Meiji_Jingu_2023-3.jpg](https://en.wikipedia.org/?curid=294236) · Wikimedia contributor · See source page
+- `d01-02-tokyu-plaza.jpg` — [Street crowd reflecting in the polyhedral mirrors of the station Tokyu Plaza Omotesando, Harajuku, Tokyo, Japan.jpg](https://commons.wikimedia.org/wiki/File:Street_crowd_reflecting_in_the_polyhedral_mirrors_of_the_station_Tokyu_Plaza_Omotesando,_Harajuku,_Tokyo,_Japan.jpg) · Basile Morin · CC BY-SA 4.0
+- `d01-03-takeshita-street.jpg` — [JRE-Harajuku-Station-07.jpg](https://en.wikipedia.org/?curid=148882) · Wikimedia contributor · See source page
+- `d01-04-hachiko.jpg` — [Hachiko.JPG](https://en.wikipedia.org/?curid=788698) · Wikimedia contributor · See source page
+- `d01-05-shibuya-crossing.jpg` — [Shibuya_Crossing,_Aerial.jpg](https://en.wikipedia.org/?curid=62473330) · Wikimedia contributor · See source page
+- `d01-06-shibuya-sky.jpg` — [SHIBUYA_SCRAMBLE_SQUARE_East_Tower.jpg](https://en.wikipedia.org/?curid=64259527) · Wikimedia contributor · See source page
+- `d02-01-umeda-sky.jpg` — [2018_Umeda_Sky_Building.jpg](https://en.wikipedia.org/?curid=1026313) · Wikimedia contributor · See source page
+- `d02-02-tsutenkaku.jpg` — [New_Tsutenkaku,_Osaka.jpg](https://en.wikipedia.org/?curid=455161) · Wikimedia contributor · See source page
+- `d02-03-namba.jpg` — [Namba_Station.JPG](https://en.wikipedia.org/?curid=400034) · Wikimedia contributor · See source page
+- `d02-04-dotonbori.jpg` — [Osaka_Dotonbori_Ebisu_Bridge.jpg](https://en.wikipedia.org/?curid=998084) · Wikimedia contributor · See source page
+- `d03-01-himeji-castle.jpg` — [Himeji_castle_in_may_2015.jpg](https://en.wikipedia.org/?curid=180542) · Wikimedia contributor · See source page
+- `d03-02-atomic-bomb-dome.jpg` — [Genbaku_Dome04-r.JPG](https://en.wikipedia.org/?curid=214043) · Wikimedia contributor · See source page
+- `d03-03-peace-park.jpg` — [20181111_Hiroshima_Memorial_Cenotaph-1.jpg](https://en.wikipedia.org/?curid=4910965) · Wikimedia contributor · See source page
+- `d04-01-itsukushima.jpg` — [Itsukushima_Shrine_Torii_Gate_(13890465459).jpg](https://en.wikipedia.org/?curid=576575) · Wikimedia contributor · See source page
+- `d05-01-kiyomizudera.jpg` — [Kiyomizu.jpg](https://en.wikipedia.org/?curid=631068) · Wikimedia contributor · See source page
+- `d05-02-sannenzaka.jpg` — [Sannenzaka_street,_Kyoto_(3811257874).jpg](https://en.wikipedia.org/?curid=62609435) · Wikimedia contributor · See source page
+- `d05-03-ninenzaka.jpg` — [Pedestrian_road_with_pavements_and_paper_umbrellas,_Higashiyama-ku,_Kyoto,_Japan,_early_morning.jpg](https://en.wikipedia.org/?curid=62609383) · Wikimedia contributor · See source page
+- `d05-04-yasaka-pagoda.jpg` — [Yasaka-dori early morning with street lanterns and the Tower of Yasaka (Hokan-ji Temple), Kyoto, Japan.jpg](https://commons.wikimedia.org/wiki/File:Yasaka-dori_early_morning_with_street_lanterns_and_the_Tower_of_Yasaka_(Hokan-ji_Temple),_Kyoto,_Japan.jpg) · Basile Morin · CC BY-SA 4.0
+- `d05-05-sanjusangendo.jpg` — [Sanjusangendo_2022.jpg](https://en.wikipedia.org/?curid=3400176) · Wikimedia contributor · See source page
+- `d05-06-nishiki-market.jpg` — [Nishiki_Ichiba_by_matsuyuki.jpg](https://en.wikipedia.org/?curid=14538385) · Wikimedia contributor · See source page
+- `d06-01-kinkakuji.jpg` — [Golden_Pavilion_Kinkaku-ji_water_mirror_2024.jpg](https://en.wikipedia.org/?curid=246341) · Wikimedia contributor · See source page
+- `d06-02-arashiyama.jpg` — [Arashiyama Bamboo Grove (Unsplash)](https://commons.wikimedia.org/wiki/File:Arashiyama_Bamboo_Grove_(Unsplash).jpg) · Erol Ahmed · Wikimedia Commons source
+- `d07-01-fushimi-inari.jpg` — [Torii_path_with_lantern_at_Fushimi_Inari_Taisha_Shrine,_Kyoto,_Japan.jpg](https://en.wikipedia.org/?curid=1659910) · Wikimedia contributor · See source page
+- `d07-02-nara-park.jpg` — [Nara_Park_-_panoramio_(2).jpg](https://en.wikipedia.org/?curid=9907259) · Wikimedia contributor · See source page
+- `d07-03-todaiji.jpg` — [Tōdai-ji_Kon-dō.jpg](https://en.wikipedia.org/?curid=494547) · Wikimedia contributor · See source page
+- `d07-04-nakatanidou.jpg` — [Mochi Herstellung.jpg](https://commons.wikimedia.org/wiki/File:Mochi_Herstellung.jpg) · Dimethylsulfoxid · CC BY-SA 4.0
+- `d08-01-kamakura-buddha.jpg` — [230128_Kamakura_Daibutsu_Japan04s3.jpg](https://en.wikipedia.org/?curid=730217) · Wikimedia contributor · See source page
+- `d09-01-lake-ashi.jpg` — [260505_Moto-Hakone_Hakone_Japan01s3.jpg](https://en.wikipedia.org/?curid=4840796) · Wikimedia contributor · See source page
+- `d09-02-hakone-ropeway.jpg` — [Hakone_ropeway_(cropped).jpg](https://en.wikipedia.org/?curid=19732608) · Wikimedia contributor · See source page
+- `d10-01-tsukiji.jpg` — [2018_Tsukiji_fish_market.jpg](https://en.wikipedia.org/?curid=525323) · Wikimedia contributor · See source page
+- `d10-02-teamlab.jpg` — [Original generated travel image](Generated locally with OpenAI image generation) · OpenAI image generation · Project asset
+- `d10-03-akihabara.jpg` — [Sotokanda,_Akihabara_Electric_Town_at_night_20231114.png](https://en.wikipedia.org/?curid=2802) · Wikimedia contributor · See source page
+- `d10-04-ueno-park.jpg` — [Ueno_park.jpg](https://en.wikipedia.org/?curid=626921) · Wikimedia contributor · See source page
+- `d10-05-ginza.jpg` — [Ginza-WAKO_at_night.jpg](https://en.wikipedia.org/?curid=242257) · Wikimedia contributor · See source page
+- `d10-06-odaiba.jpg` — [Odaiba_close_up_-_2025_Jan_14_01-27PM.jpeg](https://en.wikipedia.org/?curid=424445) · Wikimedia contributor · See source page
+- `d10-07-minato-mirai.jpg` — [Minato_Mirai_In_Blue.jpg](https://en.wikipedia.org/?curid=450559) · Wikimedia contributor · See source page
+- `d10-08-shinjuku.jpg` — [Skyscrapers_of_Shinjuku_2009_January.jpg](https://en.wikipedia.org/?curid=147734) · Wikimedia contributor · See source page
+- `d11-01-sensoji.jpg` — [Sensoji_2023.jpg](https://en.wikipedia.org/?curid=871044) · Wikimedia contributor · See source page
+- `d11-02-skytree.jpg` — [Tokyo_Skytree_2014_Ⅲ.jpg](https://en.wikipedia.org/?curid=2638104) · Wikimedia contributor · See source page
+- `d11-03-haneda.jpg` — [All_haneda.jpg](https://en.wikipedia.org/?curid=24071884) · Wikimedia contributor · See source page

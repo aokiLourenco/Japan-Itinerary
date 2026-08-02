@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Roteiro Japão 2026</title>
-<link rel="preload" as="image" href="assets/meiji-jingu.jpg" fetchpriority="high">
 <link rel="stylesheet" href="assets/vendor/leaflet.min.css">
 <style>
   :root{
@@ -274,27 +273,19 @@ const hotels = [
 ];
 
 /* ---------- Place imagery ---------- */
-const searchedPhotos = [
-  'assets/meiji-jingu.jpg',
-  'assets/tokyu-plaza.jpg',
-  'assets/takeshita-street.jpg',
-  'assets/shibuya-crossing.jpg',
-  'assets/shibuya-crossing.jpg',
-  'assets/shibuya-crossing.jpg'
-];
-const cityPhotos = [
-  searchedPhotos[0],
-  'assets/day-02-osaka.jpg',
-  'assets/day-03-himeji.jpg',
-  'assets/day-04-miyajima.jpg',
-  'assets/day-05-kiyomizudera.jpg',
-  'assets/day-06-arashiyama.jpg',
-  'assets/day-07-nara.jpg',
-  'assets/day-08-kamakura.jpg',
-  'assets/day-09-hakone.jpg',
-  'assets/day-10-tokyo.jpg',
-  'assets/day-11-sensoji.jpg'
-];
+const locationPhotos = [
+  ['d01-01-meiji-jingu','d01-02-tokyu-plaza','d01-03-takeshita-street','d01-04-hachiko','d01-05-shibuya-crossing','d01-06-shibuya-sky'],
+  ['d02-01-umeda-sky','d02-02-tsutenkaku','d02-03-namba','d02-04-dotonbori'],
+  ['d03-01-himeji-castle','d03-02-atomic-bomb-dome','d03-03-peace-park'],
+  ['d04-01-itsukushima'],
+  ['d05-01-kiyomizudera','d05-02-sannenzaka','d05-03-ninenzaka','d05-04-yasaka-pagoda','d05-05-sanjusangendo','d05-06-nishiki-market'],
+  ['d06-01-kinkakuji','d06-02-arashiyama'],
+  ['d07-01-fushimi-inari','d07-02-nara-park','d07-03-todaiji','d07-04-nakatanidou'],
+  ['d08-01-kamakura-buddha'],
+  ['d09-01-lake-ashi','d09-02-hakone-ropeway'],
+  ['d10-01-tsukiji','d10-02-teamlab','d10-03-akihabara','d10-04-ueno-park','d10-05-ginza','d10-06-odaiba','d10-07-minato-mirai','d10-08-shinjuku'],
+  ['d11-01-sensoji','d11-02-skytree','d11-03-haneda']
+].map(day => day.map(file => `assets/locations/${file}.jpg`));
 const firstDayDetails = [
   ['4.6','51 962','Santuário xintoísta'],
   ['4.1','3 656','Centro comercial'],
@@ -304,7 +295,7 @@ const firstDayDetails = [
   ['4.6','16 307','Observatório']
 ];
 legs.forEach((leg, li) => leg.stops.forEach((stop, si) => {
-  stop.image = li === 0 ? searchedPhotos[si] : cityPhotos[li];
+  stop.image = locationPhotos[li][si];
   const detail = li === 0 ? firstDayDetails[si] : ['4.' + ((si + li) % 6 + 2), String(1250 + li * 947 + si * 613), 'Ponto de interesse'];
   [stop.rating, stop.reviews, stop.category] = detail;
 }));

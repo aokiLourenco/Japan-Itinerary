@@ -1,0 +1,402 @@
+[
+  {
+    "title": "Meiji_Jingu_2023-3.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Meiji_Jingu_2023-3.jpg/960px-Meiji_Jingu_2023-3.jpg",
+    "source": "https://en.wikipedia.org/?curid=294236",
+    "artist": "Wikimedia contributor",
+    "license": "See source page",
+    "id": "d01-01-meiji-jingu",
+    "query": "Meiji Shrine Tokyo",
+    "file": "assets/locations/d01-01-meiji-jingu.jpg"
+  },
+  {
+    "title": "Street crowd reflecting in the polyhedral mirrors of the station Tokyu Plaza Omotesando, Harajuku, Tokyo, Japan.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Street_crowd_reflecting_in_the_polyhedral_mirrors_of_the_station_Tokyu_Plaza_Omotesando%2C_Harajuku%2C_Tokyo%2C_Japan.jpg/960px-Street_crowd_reflecting_in_the_polyhedral_mirrors_of_the_station_Tokyu_Plaza_Omotesando%2C_Harajuku%2C_Tokyo%2C_Japan.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Street_crowd_reflecting_in_the_polyhedral_mirrors_of_the_station_Tokyu_Plaza_Omotesando,_Harajuku,_Tokyo,_Japan.jpg",
+    "artist": "Basile Morin",
+    "license": "CC BY-SA 4.0",
+    "id": "d01-02-tokyu-plaza",
+    "query": "Tokyu Plaza Omotesando Harajuku",
+    "file": "assets/locations/d01-02-tokyu-plaza.jpg"
+  },
+  {
+    "title": "JRE-Harajuku-Station-07.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/JRE-Harajuku-Station-07.jpg/960px-JRE-Harajuku-Station-07.jpg",
+    "source": "https://en.wikipedia.org/?curid=148882",
+    "artist": "Wikimedia contributor",
+    "license": "See source page",
+    "id": "d01-03-takeshita-street",
+    "query": "Takeshita Street Harajuku",
+    "file": "assets/locations/d01-03-takeshita-street.jpg"
+  },
+  {
+    "title": "Hachiko.JPG",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Hachiko.JPG",
+    "source": "https://en.wikipedia.org/?curid=788698",
+    "artist": "Wikimedia contributor",
+    "license": "See source page",
+    "id": "d01-04-hachiko",
+    "query": "Hachiko statue Shibuya",
+    "file": "assets/locations/d01-04-hachiko.jpg"
+  },
+  {
+    "title": "Shibuya_Crossing,_Aerial.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Shibuya_Crossing%2C_Aerial.jpg/960px-Shibuya_Crossing%2C_Aerial.jpg",
+    "source": "https://en.wikipedia.org/?curid=62473330",
+    "artist": "Wikimedia contributor",
+    "license": "See source page",
+    "id": "d01-05-shibuya-crossing",
+    "query": "Shibuya Crossing",
+    "file": "assets/locations/d01-05-shibuya-crossing.jpg"
+  },
+  {
+    "title": "SHIBUYA_SCRAMBLE_SQUARE_East_Tower.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/SHIBUYA_SCRAMBLE_SQUARE_East_Tower.jpg/960px-SHIBUYA_SCRAMBLE_SQUARE_East_Tower.jpg",
+    "source": "https://en.wikipedia.org/?curid=64259527",
+    "artist": "Wikimedia contributor",
+    "license": "See source page",
+    "id": "d01-06-shibuya-sky",
+    "query": "Shibuya Sky observation deck",
+    "file": "assets/locations/d01-06-shibuya-sky.jpg"
+  },
+  {
+    "title": "2018_Umeda_Sky_Building.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/2018_Umeda_Sky_Building.jpg/960px-2018_Umeda_Sky_Building.jpg",
+    "source": "https://en.wikipedia.org/?curid=1026313",
+    "artist": "Wikimedia contributor",
+    "license": "See source page",
+    "id": "d02-01-umeda-sky",
+    "query": "Umeda Sky Building Osaka",
+    "file": "assets/locations/d02-01-umeda-sky.jpg"
+  },
+  {
+    "title": "New_Tsutenkaku,_Osaka.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/New_Tsutenkaku%2C_Osaka.jpg/960px-New_Tsutenkaku%2C_Osaka.jpg",
+    "source": "https://en.wikipedia.org/?curid=455161",
+    "artist": "Wikimedia contributor",
+    "license": "See source page",
+    "id": "d02-02-tsutenkaku",
+    "query": "Tsutenkaku Osaka",
+    "file": "assets/locations/d02-02-tsutenkaku.jpg"
+  },
+  {
+    "title": "Namba_Station.JPG",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Namba_Station.JPG/960px-Namba_Station.JPG",
+    "source": "https://en.wikipedia.org/?curid=400034",
+    "artist": "Wikimedia contributor",
+    "license": "See source page",
+    "id": "d02-03-namba",
+    "query": "Namba Osaka",
+    "file": "assets/locations/d02-03-namba.jpg"
+  },
+  {
+    "title": "Osaka_Dotonbori_Ebisu_Bridge.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Osaka_Dotonbori_Ebisu_Bridge.jpg/960px-Osaka_Dotonbori_Ebisu_Bridge.jpg",
+    "source": "https://en.wikipedia.org/?curid=998084",
+    "artist": "Wikimedia contributor",
+    "license": "See source page",
+    "id": "d02-04-dotonbori",
+    "query": "Dotonbori Osaka",
+    "file": "assets/locations/d02-04-dotonbori.jpg"
+  },
+  {
+    "title": "Himeji_castle_in_may_2015.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Himeji_castle_in_may_2015.jpg/960px-Himeji_castle_in_may_2015.jpg",
+    "source": "https://en.wikipedia.org/?curid=180542",
+    "artist": "Wikimedia contributor",
+    "license": "See source page",
+    "id": "d03-01-himeji-castle",
+    "query": "Himeji Castle",
+    "file": "assets/locations/d03-01-himeji-castle.jpg"
+  },
+  {
+    "title": "Genbaku_Dome04-r.JPG",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Genbaku_Dome04-r.JPG/960px-Genbaku_Dome04-r.JPG",
+    "source": "https://en.wikipedia.org/?curid=214043",
+    "artist": "Wikimedia contributor",
+    "license": "See source page",
+    "id": "d03-02-atomic-bomb-dome",
+    "query": "Hiroshima Atomic Bomb Dome",
+    "file": "assets/locations/d03-02-atomic-bomb-dome.jpg"
+  },
+  {
+    "title": "20181111_Hiroshima_Memorial_Cenotaph-1.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/20181111_Hiroshima_Memorial_Cenotaph-1.jpg/960px-20181111_Hiroshima_Memorial_Cenotaph-1.jpg",
+    "source": "https://en.wikipedia.org/?curid=4910965",
+    "artist": "Wikimedia contributor",
+    "license": "See source page",
+    "id": "d03-03-peace-park",
+    "query": "Hiroshima Peace Memorial Park",
+    "file": "assets/locations/d03-03-peace-park.jpg"
+  },
+  {
+    "title": "Itsukushima_Shrine_Torii_Gate_(13890465459).jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg/960px-Itsukushima_Shrine_Torii_Gate_%2813890465459%29.jpg",
+    "source": "https://en.wikipedia.org/?curid=576575",
+    "artist": "Wikimedia contributor",
+    "license": "See source page",
+    "id": "d04-01-itsukushima",
+    "query": "Itsukushima Shrine Miyajima",
+    "file": "assets/locations/d04-01-itsukushima.jpg"
+  },
+  {
+    "title": "Kiyomizu.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Kiyomizu.jpg/960px-Kiyomizu.jpg",
+    "source": "https://en.wikipedia.org/?curid=631068",
+    "artist": "Wikimedia contributor",
+    "license": "See source page",
+    "id": "d05-01-kiyomizudera",
+    "query": "Kiyomizu-dera Kyoto",
+    "file": "assets/locations/d05-01-kiyomizudera.jpg"
+  },
+  {
+    "title": "Sannenzaka_street,_Kyoto_(3811257874).jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Sannenzaka_street%2C_Kyoto_%283811257874%29.jpg/960px-Sannenzaka_street%2C_Kyoto_%283811257874%29.jpg",
+    "source": "https://en.wikipedia.org/?curid=62609435",
+    "artist": "Wikimedia contributor",
+    "license": "See source page",
+    "id": "d05-02-sannenzaka",
+    "query": "Sannenzaka Kyoto",
+    "file": "assets/locations/d05-02-sannenzaka.jpg"
+  },
+  {
+    "title": "Pedestrian_road_with_pavements_and_paper_umbrellas,_Higashiyama-ku,_Kyoto,_Japan,_early_morning.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Pedestrian_road_with_pavements_and_paper_umbrellas%2C_Higashiyama-ku%2C_Kyoto%2C_Japan%2C_early_morning.jpg/960px-Pedestrian_road_with_pavements_and_paper_umbrellas%2C_Higashiyama-ku%2C_Kyoto%2C_Japan%2C_early_morning.jpg",
+    "source": "https://en.wikipedia.org/?curid=62609383",
+    "artist": "Wikimedia contributor",
+    "license": "See source page",
+    "id": "d05-03-ninenzaka",
+    "query": "Ninenzaka Kyoto",
+    "file": "assets/locations/d05-03-ninenzaka.jpg"
+  },
+  {
+    "title": "Yasaka-dori early morning with street lanterns and the Tower of Yasaka (Hokan-ji Temple), Kyoto, Japan.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Yasaka-dori_early_morning_with_street_lanterns_and_the_Tower_of_Yasaka_%28Hokan-ji_Temple%29%2C_Kyoto%2C_Japan.jpg/960px-Yasaka-dori_early_morning_with_street_lanterns_and_the_Tower_of_Yasaka_%28Hokan-ji_Temple%29%2C_Kyoto%2C_Japan.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Yasaka-dori_early_morning_with_street_lanterns_and_the_Tower_of_Yasaka_(Hokan-ji_Temple),_Kyoto,_Japan.jpg",
+    "artist": "Basile Morin",
+    "license": "CC BY-SA 4.0",
+    "id": "d05-04-yasaka-pagoda",
+    "query": "Yasaka Pagoda Kyoto",
+    "file": "assets/locations/d05-04-yasaka-pagoda.jpg"
+  },
+  {
+    "title": "Sanjusangendo_2022.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Sanjusangendo_2022.jpg/960px-Sanjusangendo_2022.jpg",
+    "source": "https://en.wikipedia.org/?curid=3400176",
+    "artist": "Wikimedia contributor",
+    "license": "See source page",
+    "id": "d05-05-sanjusangendo",
+    "query": "Sanjusangen-do Kyoto",
+    "file": "assets/locations/d05-05-sanjusangendo.jpg"
+  },
+  {
+    "title": "Nishiki_Ichiba_by_matsuyuki.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Nishiki_Ichiba_by_matsuyuki.jpg/960px-Nishiki_Ichiba_by_matsuyuki.jpg",
+    "source": "https://en.wikipedia.org/?curid=14538385",
+    "artist": "Wikimedia contributor",
+    "license": "See source page",
+    "id": "d05-06-nishiki-market",
+    "query": "Nishiki Market Kyoto",
+    "file": "assets/locations/d05-06-nishiki-market.jpg"
+  },
+  {
+    "title": "Golden_Pavilion_Kinkaku-ji_water_mirror_2024.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Golden_Pavilion_Kinkaku-ji_water_mirror_2024.jpg/960px-Golden_Pavilion_Kinkaku-ji_water_mirror_2024.jpg",
+    "source": "https://en.wikipedia.org/?curid=246341",
+    "artist": "Wikimedia contributor",
+    "license": "See source page",
+    "id": "d06-01-kinkakuji",
+    "query": "Kinkaku-ji Kyoto",
+    "file": "assets/locations/d06-01-kinkakuji.jpg"
+  },
+  {
+    "title": "Arashiyama Bamboo Grove (Unsplash)",
+    "url": "local:day-06-arashiyama",
+    "source": "https://commons.wikimedia.org/wiki/File:Arashiyama_Bamboo_Grove_(Unsplash).jpg",
+    "artist": "Erol Ahmed",
+    "license": "Wikimedia Commons source",
+    "id": "d06-02-arashiyama",
+    "query": "Arashiyama Bamboo Grove Kyoto",
+    "file": "assets/locations/d06-02-arashiyama.jpg"
+  },
+  {
+    "title": "Torii_path_with_lantern_at_Fushimi_Inari_Taisha_Shrine,_Kyoto,_Japan.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Torii_path_with_lantern_at_Fushimi_Inari_Taisha_Shrine%2C_Kyoto%2C_Japan.jpg/960px-Torii_path_with_lantern_at_Fushimi_Inari_Taisha_Shrine%2C_Kyoto%2C_Japan.jpg",
+    "source": "https://en.wikipedia.org/?curid=1659910",
+    "artist": "Wikimedia contributor",
+    "license": "See source page",
+    "id": "d07-01-fushimi-inari",
+    "query": "Fushimi Inari Taisha Kyoto",
+    "file": "assets/locations/d07-01-fushimi-inari.jpg"
+  },
+  {
+    "title": "Nara_Park_-_panoramio_(2).jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Nara_Park_-_panoramio_%282%29.jpg/960px-Nara_Park_-_panoramio_%282%29.jpg",
+    "source": "https://en.wikipedia.org/?curid=9907259",
+    "artist": "Wikimedia contributor",
+    "license": "See source page",
+    "id": "d07-02-nara-park",
+    "query": "Nara Park deer",
+    "file": "assets/locations/d07-02-nara-park.jpg"
+  },
+  {
+    "title": "Tōdai-ji_Kon-dō.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/T%C5%8Ddai-ji_Kon-d%C5%8D.jpg/960px-T%C5%8Ddai-ji_Kon-d%C5%8D.jpg",
+    "source": "https://en.wikipedia.org/?curid=494547",
+    "artist": "Wikimedia contributor",
+    "license": "See source page",
+    "id": "d07-03-todaiji",
+    "query": "Todai-ji Nara",
+    "file": "assets/locations/d07-03-todaiji.jpg"
+  },
+  {
+    "title": "Mochi Herstellung.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Mochi_Herstellung.jpg/960px-Mochi_Herstellung.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Mochi_Herstellung.jpg",
+    "artist": "Dimethylsulfoxid",
+    "license": "CC BY-SA 4.0",
+    "id": "d07-04-nakatanidou",
+    "query": "Nakatanidou mochi Nara",
+    "file": "assets/locations/d07-04-nakatanidou.jpg"
+  },
+  {
+    "title": "230128_Kamakura_Daibutsu_Japan04s3.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/230128_Kamakura_Daibutsu_Japan04s3.jpg/960px-230128_Kamakura_Daibutsu_Japan04s3.jpg",
+    "source": "https://en.wikipedia.org/?curid=730217",
+    "artist": "Wikimedia contributor",
+    "license": "See source page",
+    "id": "d08-01-kamakura-buddha",
+    "query": "Great Buddha Kamakura Kotoku-in",
+    "file": "assets/locations/d08-01-kamakura-buddha.jpg"
+  },
+  {
+    "title": "260505_Moto-Hakone_Hakone_Japan01s3.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/260505_Moto-Hakone_Hakone_Japan01s3.jpg/960px-260505_Moto-Hakone_Hakone_Japan01s3.jpg",
+    "source": "https://en.wikipedia.org/?curid=4840796",
+    "artist": "Wikimedia contributor",
+    "license": "See source page",
+    "id": "d09-01-lake-ashi",
+    "query": "Lake Ashi Hakone",
+    "file": "assets/locations/d09-01-lake-ashi.jpg"
+  },
+  {
+    "title": "Hakone_ropeway_(cropped).jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Hakone_ropeway_%28cropped%29.jpg/960px-Hakone_ropeway_%28cropped%29.jpg",
+    "source": "https://en.wikipedia.org/?curid=19732608",
+    "artist": "Wikimedia contributor",
+    "license": "See source page",
+    "id": "d09-02-hakone-ropeway",
+    "query": "Hakone Ropeway",
+    "file": "assets/locations/d09-02-hakone-ropeway.jpg"
+  },
+  {
+    "title": "2018_Tsukiji_fish_market.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/2018_Tsukiji_fish_market.jpg/960px-2018_Tsukiji_fish_market.jpg",
+    "source": "https://en.wikipedia.org/?curid=525323",
+    "artist": "Wikimedia contributor",
+    "license": "See source page",
+    "id": "d10-01-tsukiji",
+    "query": "Tsukiji Outer Market Tokyo",
+    "file": "assets/locations/d10-01-tsukiji.jpg"
+  },
+  {
+    "title": "Original generated travel image",
+    "url": "generated:teamlab-planets",
+    "source": "Generated locally with OpenAI image generation",
+    "artist": "OpenAI image generation",
+    "license": "Project asset",
+    "id": "d10-02-teamlab",
+    "query": "teamLab Planets Tokyo",
+    "file": "assets/locations/d10-02-teamlab.jpg"
+  },
+  {
+    "title": "Sotokanda,_Akihabara_Electric_Town_at_night_20231114.png",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Sotokanda%2C_Akihabara_Electric_Town_at_night_20231114.png/960px-Sotokanda%2C_Akihabara_Electric_Town_at_night_20231114.png",
+    "source": "https://en.wikipedia.org/?curid=2802",
+    "artist": "Wikimedia contributor",
+    "license": "See source page",
+    "id": "d10-03-akihabara",
+    "query": "Akihabara Tokyo",
+    "file": "assets/locations/d10-03-akihabara.jpg"
+  },
+  {
+    "title": "Ueno_park.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Ueno_park.jpg/960px-Ueno_park.jpg",
+    "source": "https://en.wikipedia.org/?curid=626921",
+    "artist": "Wikimedia contributor",
+    "license": "See source page",
+    "id": "d10-04-ueno-park",
+    "query": "Ueno Park Tokyo",
+    "file": "assets/locations/d10-04-ueno-park.jpg"
+  },
+  {
+    "title": "Ginza-WAKO_at_night.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Ginza-WAKO_at_night.jpg/960px-Ginza-WAKO_at_night.jpg",
+    "source": "https://en.wikipedia.org/?curid=242257",
+    "artist": "Wikimedia contributor",
+    "license": "See source page",
+    "id": "d10-05-ginza",
+    "query": "Ginza Tokyo",
+    "file": "assets/locations/d10-05-ginza.jpg"
+  },
+  {
+    "title": "Odaiba_close_up_-_2025_Jan_14_01-27PM.jpeg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Odaiba_close_up_-_2025_Jan_14_01-27PM.jpeg/960px-Odaiba_close_up_-_2025_Jan_14_01-27PM.jpeg",
+    "source": "https://en.wikipedia.org/?curid=424445",
+    "artist": "Wikimedia contributor",
+    "license": "See source page",
+    "id": "d10-06-odaiba",
+    "query": "Odaiba Tokyo",
+    "file": "assets/locations/d10-06-odaiba.jpg"
+  },
+  {
+    "title": "Minato_Mirai_In_Blue.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Minato_Mirai_In_Blue.jpg/960px-Minato_Mirai_In_Blue.jpg",
+    "source": "https://en.wikipedia.org/?curid=450559",
+    "artist": "Wikimedia contributor",
+    "license": "See source page",
+    "id": "d10-07-minato-mirai",
+    "query": "Minato Mirai Yokohama",
+    "file": "assets/locations/d10-07-minato-mirai.jpg"
+  },
+  {
+    "title": "Skyscrapers_of_Shinjuku_2009_January.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Skyscrapers_of_Shinjuku_2009_January.jpg/960px-Skyscrapers_of_Shinjuku_2009_January.jpg",
+    "source": "https://en.wikipedia.org/?curid=147734",
+    "artist": "Wikimedia contributor",
+    "license": "See source page",
+    "id": "d10-08-shinjuku",
+    "query": "Shinjuku Tokyo skyline",
+    "file": "assets/locations/d10-08-shinjuku.jpg"
+  },
+  {
+    "title": "Sensoji_2023.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Sensoji_2023.jpg/960px-Sensoji_2023.jpg",
+    "source": "https://en.wikipedia.org/?curid=871044",
+    "artist": "Wikimedia contributor",
+    "license": "See source page",
+    "id": "d11-01-sensoji",
+    "query": "Senso-ji Asakusa Tokyo",
+    "file": "assets/locations/d11-01-sensoji.jpg"
+  },
+  {
+    "title": "Tokyo_Skytree_2014_Ⅲ.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Tokyo_Skytree_2014_%E2%85%A2.jpg/960px-Tokyo_Skytree_2014_%E2%85%A2.jpg",
+    "source": "https://en.wikipedia.org/?curid=2638104",
+    "artist": "Wikimedia contributor",
+    "license": "See source page",
+    "id": "d11-02-skytree",
+    "query": "Tokyo Skytree",
+    "file": "assets/locations/d11-02-skytree.jpg"
+  },
+  {
+    "title": "All_haneda.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/All_haneda.jpg/960px-All_haneda.jpg",
+    "source": "https://en.wikipedia.org/?curid=24071884",
+    "artist": "Wikimedia contributor",
+    "license": "See source page",
+    "id": "d11-03-haneda",
+    "query": "Haneda Airport Tokyo",
+    "file": "assets/locations/d11-03-haneda.jpg"
+  }
+]
