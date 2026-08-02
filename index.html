@@ -67,6 +67,7 @@
   .trip-mark{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:#fff;color:#222;font-weight:800;}
   .trip-badge strong{display:block;font-size:13px;letter-spacing:.02em;}
   .trip-badge span{display:block;color:#aeadA8;font-size:11px;margin-top:2px;}
+  .trip-badge #m-stops{display:inline;margin:0;}
 
   /* ---------- Detail panel ---------- */
   #panel{
@@ -82,7 +83,7 @@
     display:none;width:38px;height:38px;border:0;border-radius:50%;background:#3b3b38;
     cursor:pointer;font-size:22px;line-height:1;
   }
-  h1{font-size:31px;line-height:1.18;letter-spacing:-.035em;margin:18px 0 18px;font-weight:700;}
+  h1{font-size:31px;line-height:1.18;letter-spacing:-.035em;margin:18px 0 18px;font-weight:700;text-wrap:balance;}
   .trip-path{color:#c5c3be;font-size:17px;line-height:1.55;margin:0;}
   .route-button{
     display:inline-flex;align-items:center;gap:10px;margin-top:22px;padding:11px 16px;
@@ -104,6 +105,7 @@
     object-fit:cover;background:linear-gradient(135deg,#34465a,#66788a);
   }
   .place-copy{min-width:0;}
+  .place-name,.place-meta,.place-note{display:block;}
   .place-name{font-size:20px;line-height:1.25;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   .place-meta{color:#b7b5b0;font-size:15px;line-height:1.4;margin-top:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   .place-meta .star{color:#e8e5dc;}
@@ -113,6 +115,7 @@
 
   /* ---------- Map furniture ---------- */
   .leaflet-control-zoom{border:0!important;box-shadow:0 5px 18px rgba(0,0,0,.28)!important;}
+  .leaflet-bottom .leaflet-control-zoom{margin-left:24px;margin-bottom:96px;}
   .leaflet-control-zoom a{background:#2d2d2b!important;color:#eee!important;border-color:#444!important;}
   .leaflet-control-attribution{background:rgba(23,25,28,.78)!important;color:#bbb!important;}
   .leaflet-control-attribution a{color:#d9d9d9!important;}
@@ -146,14 +149,15 @@
     #app{height:100vh;margin:0;border:0;border-radius:0;}
     #day-nav{top:14px;left:12px;right:12px;max-width:none;gap:8px;}
     .day-tab{padding:11px 16px;font-size:14px;}
-    #panel{top:42vh;left:0;right:0;bottom:0;width:auto;border-radius:24px 24px 0 0;border-width:1px 0 0;}
+    #panel{top:42vh;left:0;right:0;bottom:0;width:auto;max-width:100vw;border-radius:24px 24px 0 0;border-width:1px 0 0;}
     .panel-head{padding:22px 22px 16px;}
     .panel-topline::before{content:"";position:absolute;left:50%;top:9px;width:44px;height:4px;border-radius:4px;background:#676763;transform:translateX(-50%);}
     .eyebrow{font-size:12px;}
     .icon-button{display:grid;place-items:center;}
-    h1{font-size:24px;margin:10px 0;}
+    h1{font-size:21px;line-height:1.25;margin:10px 0 0;width:calc(100vw - 44px);max-width:calc(100vw - 44px);}
     .trip-path{display:none;}
-    .route-button{position:absolute;right:66px;top:18px;margin:0;padding:9px 13px;font-size:13px;}
+    .route-button{position:absolute;right:64px!important;left:auto!important;top:18px;margin:0;width:40px;height:40px;padding:10px;font-size:0;overflow:hidden;}
+    .route-button svg{width:20px;height:20px;flex:0 0 auto;}
     #places{padding:4px 14px 22px;}
     .place-card{grid-template-columns:78px minmax(0,1fr) 14px;min-height:104px;padding:12px;gap:13px;border-radius:17px;}
     .place-photo{width:78px;height:78px;border-width:3px;border-radius:13px;}
@@ -271,11 +275,11 @@ const hotels = [
 
 /* ---------- Place imagery ---------- */
 const searchedPhotos = [
-  'https://static.wixstatic.com/media/7464a3_2990a9f0f7504977b40b4f8c921f5d32~mv2.jpg/v1/fill/w_980%2Ch_591%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/7464a3_2990a9f0f7504977b40b4f8c921f5d32~mv2.jpg',
-  'https://www.takenaka.co.jp/majorworks/images/21014162012_01_l.jpg',
-  'https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/05/a0005613/img/en/a0005613_parts_67b5906650e27.png?20250729084700=&q=80',
+  'assets/meiji-jingu.jpg',
+  'assets/tokyu-plaza.png',
+  'assets/takeshita-street.png',
   'https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=420&q=80',
-  'https://img.over-blog-kiwi.com/1/49/55/11/20200202/ob_d947fa_img-4240-1024x1024.jpg',
+  'assets/shibuya-crossing.jpg',
   'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=420&q=80'
 ];
 const cityPhotos = [
@@ -312,7 +316,8 @@ function fallbackImage(name, color){
 }
 
 /* ---------- Map ---------- */
-const map = L.map('map',{zoomControl:true,scrollWheelZoom:true,preferCanvas:true}).setView([35.67,139.70],14);
+const map = L.map('map',{zoomControl:false,scrollWheelZoom:true,preferCanvas:true}).setView([35.67,139.70],14);
+L.control.zoom({position:'bottomleft'}).addTo(map);
 L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{
   attribution:'&copy; OpenStreetMap &copy; CARTO',subdomains:'abcd',maxZoom:20
 }).addTo(map);
